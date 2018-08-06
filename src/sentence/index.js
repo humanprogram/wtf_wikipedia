@@ -32,7 +32,7 @@ function postprocess(line) {
   //remove empty parentheses (sometimes caused by removing templates)
   line = line.replace(/\([,;: ]*\)/g, '');
   //dangling punctuation
-  line = helpers.trim_whitespace(line);
+  // line = helpers.trim_whitespace(line); TODO: commented to keep paragraph breaks
   line = line.replace(/ +\.$/, '.');
   return line;
 }

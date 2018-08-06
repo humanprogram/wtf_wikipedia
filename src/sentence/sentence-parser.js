@@ -22,7 +22,7 @@ const flatten = function(arr) {
 const naiive_split = function(text) {
   //first, split by newline
   let splits = text.split(/(\n+)/);
-  splits = splits.filter(s => s.match(/\S/));
+  splits = splits.filter(s => s.match(/\S|\n/));
   //split by period, question-mark, and exclamation-mark
   splits = splits.map(function(str) {
     return str.split(/(\S.+?[.!?])(?=\s+|$)/g);

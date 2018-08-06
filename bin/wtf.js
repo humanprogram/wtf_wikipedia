@@ -30,6 +30,10 @@ wtf.fetch(title, 'en', function (err, doc) {
   if (mode === 'json') {
     console.log(JSON.stringify(doc[mode](), null, 0));
   } else {
-    console.log(doc[mode]());
+    var html = doc.sections(0).html();
+    html = html.replace(/\n/gi,"</p>"); // Replace newline with paragraph break
+    html = html.replace(/\/\"/gi,"\"");
+    console.log(html);
+    //console.log(doc[mode]()); // TODO: Above for testing, this is the default
   }
 });
