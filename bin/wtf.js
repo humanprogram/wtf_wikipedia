@@ -33,6 +33,9 @@ wtf.fetch(title, 'en', function (err, doc) {
     var html = doc.sections(0).html();
     html = html.replace(/\n/gi,"</p>"); // Replace newline with paragraph break
     html = html.replace(/\/\"/gi,"\"");
+    html = html.replace(/\"/gi,"\\\"");
+    html = html.replace(/<a/gi,"<span");
+    html = html.replace(/a>/gi,"span>");
     console.log(html);
     //console.log(doc[mode]()); // TODO: Above for testing, this is the default
   }
